@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/field_mask.proto";
+
+package test;
+
+message Fuku{
+  uint32 size = 1;
+  string name = 2;
+}
+
+message Hito{
+  uint32 age = 1;
+  string name = 2;
+  Fuku fuku = 3;
+}
+
+message TestMsg{
+  uint32 num = 1;
+  string str = 2;
+  Hito hito = 3;
+  google.protobuf.FieldMask mask = 4;
+}
