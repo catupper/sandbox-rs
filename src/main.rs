@@ -25,6 +25,9 @@ fn main() {
         }),
         mask: None,
     };
-    let json_val = serde_json::to_value(&test_msg).unwrap();
-    println!("{}", json_val.pointer("/hito/fuku/size").unwrap());
+    let mut json_val = serde_json::to_value(&test_msg).unwrap();
+    println!("{}", json_val);
+    let fuku_name = json_val.pointer_mut("/hito/fuku/name").unwrap();
+    *fuku_name = serde_json::value::Value::String("damage jeans".to_string());
+    println!("{}", json_val);
 }
