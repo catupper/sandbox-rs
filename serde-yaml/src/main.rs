@@ -25,7 +25,7 @@ enum Pt {
 }
 
 fn main() -> Result<(), serde_yaml::Error> {
-    let yaml = "
+    let src = "
 - Point:
     x: 1.0
     y: 2.0
@@ -35,8 +35,12 @@ fn main() -> Result<(), serde_yaml::Error> {
     color: Red
     area: 10
 ";
-    let pts: Vec<Pt> = serde_yaml::from_str(yaml)?;
-    println!("{:?}", pts);
+    let obj: serde_yaml::Value = serde_yaml::from_str(src)?;
+    if let serde_yaml::Value::Sequence(objs) = obj {
+        for o in objs {
+            println!("{:?}", o);
+        }
+    }
 
     Ok(())
 }
