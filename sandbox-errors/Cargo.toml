@@ -1,0 +1,18 @@
+[package]
+name = "sandbox-errors"
+version = "0.1.0"
+authors = ["Ken Ogura <nekarugo628@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+failure = "0.1.6"
+failure_derive = "0.1.6"
+context-attribute = "1.0.0"
+auto_enums = "0.7.1"
+snafu = "0.6.1"
+anyhow = "1.0.26"
+thiserror = "1.0.9"
+errer = "0.13.0"
+errer_derive = "0.13.1"
